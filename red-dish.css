@@ -20,13 +20,28 @@ h1 {
 	margin: 2px;
 }
 
-h1.app_block_title{
-	color: #bc084b;
-	font-size: 20px;
-}
-
 h1.title{
 	color: #ff006a;
 	font-size: 80px;
 	margin-bottom: 2px;
+}
+
+span.app_block_title{
+	color: #bc084b;
+	font-size: 20px;
+	width: 90%;
+	display: inline-block;
+}
+
+span.block_button{
+	text-align: center;
+	width: 5%;
+	display: inline-block;
+	color: #fff;
+	background-color: #000;
+	cursor: pointer;
+}
+
+span#settings_display{
+	color: #888a85;
 }
