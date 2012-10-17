@@ -39,14 +39,16 @@ function toggleTab(section){
 	for(var i = 0; i < limit; i++){
 		if(tabSections[i] != section){
 			$("#" + tabSections[i] + "_body").css({"display":"none"});
-			$("#" + tabSections[i] + "_head").parent().removeClass("selected");
-			$("#" + tabSections[i] + "_head").parent().addClass("unselected");
+			var headParent = $("#" + tabSections[i] + "_head").parent();
+			headParent.removeClass("selected");
+			headParent.addClass("unselected");
 		}
 	}
 	
 	$("#" + section + "_body").css({"display":"inline"});
-	$("#" + section + "_head").parent().removeClass("unselected");
-	$("#" + section + "_head").parent().addClass("selected");
+	var chosenHeadParent = $("#" + section + "_head").parent();
+	chosenHeadParent.removeClass("unselected");
+	chosenHeadParent.addClass("selected");
 }
 
 $(document).ready(function(){
