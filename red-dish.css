@@ -6,6 +6,7 @@ div.app_block{
 	margin-top: 5px;
 	text-align: left;
 	padding: 3px;
+	clear: both;
 }
 
 div.body{
@@ -14,6 +15,37 @@ div.body{
 	margin-left: 30%;
 	font-family: Helvetica, Arial, sans-serif;
 	text-align: center;
+}
+
+div.tab{
+	text-align: center;
+	padding: 8px;
+	float: left;
+}
+
+div.selected{
+	background-color: #d8edb8;
+}
+
+div.selected_body{
+	display: inline;
+}
+
+div.tab_body{
+	width: 100%;
+}
+
+div.unselected_body{
+	display: none;
+}
+
+div.tab_headers{
+	width: 100%;
+	clear: right;
+}
+
+div.unselected{
+	background-color: #e5ebda;
 }
 
 h1 {
