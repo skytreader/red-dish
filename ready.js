@@ -1,7 +1,28 @@
 var isSettingsDisplayed = false;
-// TODO Abstract with jQuery
-var tabSections = ["manual", "scripted"];
+// Will be filled with getTabSections once page has loaded.
+var tabSections;
 
+function getTabSections(){
+	var tabSections = []
+	// Will return div for each tab header.
+	var tabheads = $(".tab_headers").children();
+	// Get each contained span for each div and get id.
+	var divCount = tabheads.length;
+	
+	for(var i = 0; i < divCount; i++){
+		var span = tabheads[i].children()[0];
+		var spanId = span.id;
+		// FIXME Strip on rightmost delimiter.
+		var sectionName = spanId.split("_")[0];
+		tabSections.push(sectionName);
+	}
+	
+	return tabSections;
+}
+
+/**
+Show/Hide function for settings app block.
+*/
 function toggleSettings(){
 	if(!isSettingsDisplayed){
 		$(".redis_settings").css({"display":"inline"});
@@ -52,6 +73,8 @@ function toggleTab(section){
 }
 
 $(document).ready(function(){
+	window.tabSections = getTabSections();
+	
 	$("#redis_settings").click(toggleSettings);
 	$("[name=connect]").click(setRedis);
 	$("#manual_head").click(function(){toggleTab("manual");});

@@ -42,6 +42,7 @@ div.unselected_body{
 div.tab_headers{
 	width: 100%;
 	clear: right;
+	cursor: pointer;
 }
 
 div.unselected{
