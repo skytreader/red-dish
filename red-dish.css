@@ -28,11 +28,12 @@ div.selected{
 }
 
 div.selected_body{
-	display: inline;
+	display: block;
 }
 
 div.tab_body{
 	width: 100%;
+	padding: 10px;
 }
 
 div.unselected_body{

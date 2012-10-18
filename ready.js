@@ -69,7 +69,7 @@ function toggleTab(section){
 		}
 	}
 	
-	$("#" + section + "_body").css({"display":"inline"});
+	$("#" + section + "_body").css({"display":"block"});
 	var chosenHeadParent = $("#" + section + "_head").parent();
 	chosenHeadParent.removeClass("unselected");
 	chosenHeadParent.addClass("selected");

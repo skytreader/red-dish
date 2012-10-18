@@ -34,7 +34,12 @@
 			</div>
 			<div class="app_block" id="tabs">
 				<div class="tab_body selected_body" id="manual_body">
-					<p>This is the manual entry option.</p>
+					<!-- TODO: Disable these until connected. -->
+					<strong>Key:</strong><br />
+					<input type="text" name="key" /><br />
+					<strong>Value:</strong><br />
+					<input type="text" name="value" /><br />
+					<input type="button" value="Set">
 				</div>
 				<div class="tab_body unselected_body" id="scripted_body">
 					<p>This is the scripted entry option.</p>
