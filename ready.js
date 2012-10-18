@@ -38,6 +38,7 @@ function toggleSettings(){
 	isSettingsDisplayed = !isSettingsDisplayed;
 }
 
+// TODO: Cache calls!
 function displaySettings(){
 	var hostname = $("[name=hostname]")[0].value;
 	var port = $("[name=port]")[0].value;
@@ -45,12 +46,16 @@ function displaySettings(){
 }
 
 function connectRedis(){
+	var hostname = $("[name=hostname]")[0].value;
+	var port = $("[name=port]")[0].value;
+	
+	$("#settings_display").load("connect.php", "host=" + hostname + "&port=" + port, displaySettings);
 }
 
 function setRedis(){
-	displaySettings();
-	connectRedis();
 	toggleSettings();
+	$("#settings_display").html("Loading...");
+	connectRedis();
 }
 
 /**

@@ -39,7 +39,7 @@
 					<input type="text" name="key" /><br />
 					<strong>Value:</strong><br />
 					<input type="text" name="value" /><br />
-					<input type="button" value="Set">
+					<input type="button" value="Set" name="redis_put">
 				</div>
 				<div class="tab_body unselected_body" id="scripted_body">
 					<p>This is the scripted entry option.</p>
