@@ -58,6 +58,10 @@ function setRedis(){
 	connectRedis();
 }
 
+function putRedis(){
+	
+}
+
 /**
 Enforced by convention: Tab headers are id'ed as section_head
 while bodies are id'ed as section_body.
