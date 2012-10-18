@@ -2,6 +2,9 @@ var isSettingsDisplayed = false;
 // Will be filled with getTabSections once page has loaded.
 var tabSections;
 
+// Some needed values
+var lastUnderscoreRegex = /(?=.*_.*)*_(?!.*_.*)/;
+
 function getTabSections(){
 	var tabSections = []
 	// Will return div for each tab header.
@@ -10,10 +13,10 @@ function getTabSections(){
 	var divCount = tabheads.length;
 	
 	for(var i = 0; i < divCount; i++){
-		var span = tabheads[i].children()[0];
+		var span = $(tabheads[i]).children()[0];
 		var spanId = span.id;
 		// FIXME Strip on rightmost delimiter.
-		var sectionName = spanId.split("_")[0];
+		var sectionName = spanId.split(lastUnderscoreRegex)[0];
 		tabSections.push(sectionName);
 	}
 	
