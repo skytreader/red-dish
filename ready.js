@@ -58,8 +58,18 @@ function setRedis(){
 	connectRedis();
 }
 
+function clearValueSet(){
+	$("[name=key]")[0].value = "";
+	$("[name=value]")[0].value = "";
+}
+
 function putRedis(){
+	var hostname = $("[name=hostname]")[0].value;
+	var port = $("[name=port]")[0].value;
+	var key = $("[name=key]")[0].value;
+	var value = $("[name=value]")[0].value;
 	
+	$("#put_result").load("set.php", "host=" + hostname + "&port=" + port + "&key=" + key + "&value=" + value, clearValueSet);
 }
 
 /**
@@ -91,4 +101,5 @@ $(document).ready(function(){
 	$("[name=connect]").click(setRedis);
 	$("#manual_head").click(function(){toggleTab("manual");});
 	$("#scripted_head").click(function(){toggleTab("scripted")});
+	$("[name=redis_put]").click(putRedis);
 })

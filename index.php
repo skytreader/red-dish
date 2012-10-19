@@ -35,6 +35,7 @@
 			<div class="app_block" id="tabs">
 				<div class="tab_body selected_body" id="manual_body">
 					<!-- TODO: Disable these until connected. -->
+					<div id="put_result"></div>
 					<strong>Key:</strong><br />
 					<input type="text" name="key" /><br />
 					<strong>Value:</strong><br />

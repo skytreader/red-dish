@@ -7,13 +7,12 @@ try{
 	$value = $_GET["value"];
 	$redis = new Redis();
 	// FIXME when will this ever close?
-	$redis->pconnect($host, $port);
+	$redis->connect($host, $port);
 	$redis->set($key, $value);
 	
-	echo "Successfully connected to Redis";
+	echo "Value set successful!";
 } catch(Exception $e){
-	echo "Couldn't connect to Redis.";
-	echo $e->getMessage();
+	echo "Error setting value.";
 }
 
 ?>
