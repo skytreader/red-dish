@@ -50,7 +50,7 @@ div.unselected{
 	background-color: #e5ebda;
 }
 
-h1 {
+h1, h2 {
 	margin: 2px;
 }
 
@@ -58,6 +58,10 @@ h1.title{
 	color: #ff006a;
 	font-size: 80px;
 	margin-bottom: 2px;
+}
+
+h2.title{
+	font-size: 20px;
 }
 
 span.app_block_title{

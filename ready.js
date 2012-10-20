@@ -52,9 +52,10 @@ function testRedis(){
 	$("#redis_test_result").load("connect.php", "host=" + hostname + "&port=" + port);
 }
 
+// FIXME Form still gets cleared even when set has failed.
 function clearValueSet(){
-	$("[name=key]")[0].value = "";
-	$("[name=value]")[0].value = "";
+	//$("[name=key]")[0].value = "";
+	//$("[name=value]")[0].value = "";
 }
 
 function putRedis(){
