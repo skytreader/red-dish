@@ -1,4 +1,4 @@
-var isSettingsDisplayed = false;
+var isSettingsDisplayed = true;
 // Will be filled with getTabSections once page has loaded.
 var tabSections;
 

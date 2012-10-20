@@ -12,9 +12,9 @@
 			<h1 class="title">RED|DI<span style="color: #000;">SH</span></h1>
 			<div class="app_block">
 				<span class="app_block_title">Redis Settings: </span>
-				<span class="block_button" id="redis_settings">+</span><br />
+				<span class="block_button" id="redis_settings">-</span><br />
 				<span class="status_display" id="redis_test_result"></span>
-				<div class="redis_settings" style="display: none;">
+				<div class="redis_settings">
 					<br />
 					<strong>Host name:</strong><br />
 					<input type="text" name="hostname" /><br />
