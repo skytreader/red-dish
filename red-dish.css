@@ -76,6 +76,6 @@ span.block_button{
 	cursor: pointer;
 }
 
-span#settings_display{
+span.status_display{
 	color: #888a85;
 }

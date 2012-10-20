@@ -13,7 +13,7 @@
 			<div class="app_block">
 				<span class="app_block_title">Redis Settings: </span>
 				<span class="block_button" id="redis_settings">+</span><br />
-				<span id="settings_display"></span>
+				<span class="status_display" id="redis_test_result"></span>
 				<div class="redis_settings" style="display: none;">
 					<br />
 					<strong>Host name:</strong><br />
@@ -35,7 +35,7 @@
 			<div class="app_block" id="tabs">
 				<div class="tab_body selected_body" id="manual_body">
 					<!-- TODO: Disable these until connected. -->
-					<div id="put_result"></div>
+					<span class="status_display" id="put_result"></div>
 					<strong>Key:</strong><br />
 					<input type="text" name="key" /><br />
 					<strong>Value:</strong><br />

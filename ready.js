@@ -49,13 +49,7 @@ function testRedis(){
 	var hostname = $("[name=hostname]")[0].value;
 	var port = $("[name=port]")[0].value;
 	
-	$("#settings_display").load("connect.php", "host=" + hostname + "&port=" + port);
-}
-
-function setRedis(){
-	toggleSettings();
-	$("#settings_display").html("Loading...");
-	//connectRedis();
+	$("#redis_test_result").load("connect.php", "host=" + hostname + "&port=" + port);
 }
 
 function clearValueSet(){
