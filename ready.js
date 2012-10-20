@@ -45,17 +45,17 @@ function displaySettings(){
 	$("#settings_display").html(hostname + ":" + port);
 }
 
-function connectRedis(){
+function testRedis(){
 	var hostname = $("[name=hostname]")[0].value;
 	var port = $("[name=port]")[0].value;
 	
-	$("#settings_display").load("connect.php", "host=" + hostname + "&port=" + port, displaySettings);
+	$("#settings_display").load("connect.php", "host=" + hostname + "&port=" + port);
 }
 
 function setRedis(){
 	toggleSettings();
 	$("#settings_display").html("Loading...");
-	connectRedis();
+	//connectRedis();
 }
 
 function clearValueSet(){
@@ -98,7 +98,7 @@ $(document).ready(function(){
 	window.tabSections = getTabSections();
 	
 	$("#redis_settings").click(toggleSettings);
-	$("[name=connect]").click(setRedis);
+	$("[name=test_server]").click(testRedis);
 	$("#manual_head").click(function(){toggleTab("manual");});
 	$("#scripted_head").click(function(){toggleTab("scripted")});
 	$("[name=redis_put]").click(putRedis);

@@ -5,12 +5,11 @@ try{
 	$port = $_GET["port"];
 	$redis = new Redis();
 	// FIXME when will this ever close?
-	$redis->pconnect($host, $port);
+	$redis->connect($host, $port);
 	
-	echo "Successfully connected to Redis";
+	echo "Redis server at $host:$port is alive.";
 } catch(Exception $e){
-	echo "Couldn't connect to Redis.";
-	echo $e->getMessage();
+	echo "Couldn't connect to Redis server at $host:$port";
 }
 
 ?>

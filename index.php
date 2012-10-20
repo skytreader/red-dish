@@ -20,7 +20,7 @@
 					<input type="text" name="hostname" /><br />
 					<strong>Port:</strong><br />
 					<input type="text" name="port" /><br />
-					<input type="button" value="Connect" name="connect" />
+					<input type="button" value="Test Server" name="test_server" />
 				</div>
 			</div>
 			<hr />
