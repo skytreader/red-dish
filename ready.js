@@ -76,6 +76,8 @@ function toggleTab(section){
 	for(var i = 0; i < limit; i++){
 		if(tabSections[i] != section){
 			$("#" + tabSections[i] + "_body").css({"display":"none"});
+			//$("#" + tabSections[i] + "_body").removeClass("selected_body");
+			console.log("display noned: " + "#" + tabSections[i] + "_body")
 			var headParent = $("#" + tabSections[i] + "_head").parent();
 			headParent.removeClass("selected");
 			headParent.addClass("unselected");
