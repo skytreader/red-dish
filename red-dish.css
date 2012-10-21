@@ -62,6 +62,8 @@ h1.title{
 
 h2.title{
 	font-size: 20px;
+	display: inline-block;
+	width: 90%;
 }
 
 span.app_block_title{

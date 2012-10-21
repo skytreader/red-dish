@@ -19,7 +19,7 @@
 					<strong>Host name:</strong><br />
 					<input type="text" name="hostname" /><br />
 					<strong>Port:</strong><br />
-					<input type="text" name="port" /><br />
+					<input type="text" name="port" value="6379" /><br />
 					<input type="button" value="Test Server" name="test_server" />
 				</div>
 			</div>
@@ -34,8 +34,8 @@
 			</div>
 			<div class="app_block" id="tabs">
 				<div class="tab_body selected_body" id="manual_body">
-					<!-- TODO: Disable these until connected. -->
 					<h2 class="title">Key-Value Data</h2>
+					<span class="block_button" id="key_value_data">+</span>
 					<span class="status_display" id="put_result"></span><br />
 					<strong>Key:</strong><br />
 					<input type="text" name="key" /><br />
@@ -46,6 +46,7 @@
 					<hr />
 					
 					<h2 class="title">Hash Map Data</h2>
+					<span class="block_button" id="hash_map_data">+</span>
 					<span class="status_display" id="map_result"></span><br />
 					<strong>Map Name:</strong><br />
 					<input type="text" name="key" /><br />
