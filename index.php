@@ -37,40 +37,44 @@
 					<h2 class="title">Key-Value Data</h2>
 					<span class="block_button" id="key_value_data">+</span>
 					<span class="status_display" id="put_result"></span><br />
-					<strong>Key:</strong><br />
-					<input type="text" name="key" /><br />
-					<strong>Value:</strong><br />
-					<input type="text" name="value" /><br />
-					<input type="button" value="Set" name="redis_put">
+					<div class="key_value_data">
+						<strong>Key:</strong><br />
+						<input type="text" name="key" /><br />
+						<strong>Value:</strong><br />
+						<input type="text" name="value" /><br />
+						<input type="button" value="Set" name="redis_put">
+					</div>
 					
 					<hr />
 					
 					<h2 class="title">Hash Map Data</h2>
 					<span class="block_button" id="hash_map_data">+</span>
 					<span class="status_display" id="map_result"></span><br />
-					<strong>Map Name:</strong><br />
-					<input type="text" name="key" /><br />
-					<strong>Map entries</strong>
-					<table id="map_entry">
-						<tr>
-							<td>
-								<strong>Key</strong>
-							</td>
-							<td>
-								<strong>Value</strong>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<input type="text" name="key[]" />
-							</td>
-							<td>
-								<input type="text" name="value[]" />
-							</td>
-						</tr>
-					</table>
+					<div class="hash_map_data">
+						<strong>Map Name:</strong><br />
+						<input type="text" name="key" /><br />
+						<strong>Map entries</strong>
+						<table id="map_entry">
+							<tr>
+								<td>
+									<strong>Key</strong>
+								</td>
+								<td>
+									<strong>Value</strong>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="text" name="key[]" />
+								</td>
+								<td>
+									<input type="text" name="value[]" />
+								</td>
+							</tr>
+						</table>
 					
-					<input type="button" value="Set" name="redis_map_put" />
+						<input type="button" value="Set" name="redis_map_put" />
+					</div>
 				</div>
 				<div class="tab_body unselected_body" id="scripted_body">
 					<p>This is the scripted entry option.</p>

@@ -23,6 +23,25 @@ function getTabSections(){
 	return tabSections;
 }
 
+function setBlockVisibilities(showList){
+	var appBlocks = $(".block_button");
+	var limit = appBlocks.length;
+	
+	for(var i = 0; i < limit; i++){
+		var thisID = appBlocks[i].id;
+		
+		if(showList.indexOf(thisID) >= 0){
+			console.log(thisID + " in given showList");
+			appBlocks[i].innerHTML = "-";
+			$("." + thisID).css({"display":"block"});
+		} else{
+			console.log(thisID + " not in given showList");
+			appBlocks[i].innerHTML = "+";
+			$("." + thisID).css({"display":"none"});
+		}
+	}
+}
+
 /**
 Show/Hide function for settings app block.
 */
@@ -93,6 +112,9 @@ function toggleTab(section){
 
 $(document).ready(function(){
 	window.tabSections = getTabSections();
+	
+	// Set the toggle buttons and their respective contents.
+	
 	
 	$("#redis_settings").click(toggleSettings);
 	$("[name=test_server]").click(testRedis);
