@@ -1,4 +1,3 @@
-var isSettingsDisplayed = true;
 // Will be filled with getTabSections once page has loaded.
 var tabSections;
 
@@ -31,11 +30,9 @@ function setBlockVisibilities(showList){
 		var thisID = appBlocks[i].id;
 		
 		if(showList.indexOf(thisID) >= 0){
-			console.log(thisID + " in given showList");
 			appBlocks[i].innerHTML = "-";
 			$("." + thisID).css({"display":"block"});
 		} else{
-			console.log(thisID + " not in given showList");
 			appBlocks[i].innerHTML = "+";
 			$("." + thisID).css({"display":"none"});
 		}
@@ -43,18 +40,22 @@ function setBlockVisibilities(showList){
 }
 
 /**
-Show/Hide function for settings app block.
+Show/Hide toggle function for app blocks.
+
+Enforced by convention: the toggle button is classed as
+blockName, then the section it shows and hides is id'ed
+as blockName;
 */
-function toggleSettings(){
-	if(!isSettingsDisplayed){
-		$(".redis_settings").css({"display":"inline"});
-		$("#redis_settings").html("-");
-	} else{
-		$(".redis_settings").css({"display":"none"});
-		$("#redis_settings").html("+");
-	}
+function toggleBlockVisibility(blockName){
+	var currentDisplay = $("." + blockName)[0].style.display;
 	
-	isSettingsDisplayed = !isSettingsDisplayed;
+	if(currentDisplay == "none"){
+		$("." + blockName).css({"display":"block"});
+		$("#" + blockName).html("-");
+	} else{
+		$("." + blockName).css({"display":"none"});
+		$("#" + blockName).html("+");
+	}
 }
 
 // TODO: Cache calls!
@@ -114,9 +115,13 @@ $(document).ready(function(){
 	window.tabSections = getTabSections();
 	
 	// Set the toggle buttons and their respective contents.
+	setBlockVisibilities(["redis_settings"]);
 	
+	// Set the event listeners on the app block buttons.
+	$("#redis_settings").click(function(){toggleBlockVisibility("redis_settings")});
+	$("#key_value_data").click(function(){toggleBlockVisibility("key_value_data")});
+	$("#hash_map_data").click(function(){toggleBlockVisibility("hash_map_data")});
 	
-	$("#redis_settings").click(toggleSettings);
 	$("[name=test_server]").click(testRedis);
 	$("#manual_head").click(function(){toggleTab("manual");});
 	$("#scripted_head").click(function(){toggleTab("scripted")});

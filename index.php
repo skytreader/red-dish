@@ -45,7 +45,7 @@
 						<input type="button" value="Set" name="redis_put">
 					</div>
 					
-					<hr />
+					<hr style="width:80%;" />
 					
 					<h2 class="title">Hash Map Data</h2>
 					<span class="block_button" id="hash_map_data">+</span>
