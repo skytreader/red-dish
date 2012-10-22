@@ -111,6 +111,35 @@ function toggleTab(section){
 	chosenHeadParent.addClass("selected");
 }
 
+/**
+Creates a new row (but does not append!) for the map entry
+section.
+
+@return A tr element containing an entry field for new key-value
+pairing entry.
+*/
+function createNewMapRow(){
+	var newKey = document.createElement("input");
+	newKey.type = "text";
+	newKey.name = "key[]";
+	
+	var newVal = document.createElement("input");
+	newVal.type = "text";
+	newVal.name = "value[]";
+	
+	var keyCell = document.createElement("td");
+	keyCell.appendChild(newKey);
+	
+	var valCell = document.createElement("td");
+	valCell.appendChild(newVal);
+	
+	var newRow = document.createElement("tr");
+	newRow.appendChild(keyCell);
+	newRow.appendChild(valCell);
+	
+	return newRow;
+}
+
 $(document).ready(function(){
 	window.tabSections = getTabSections();
 	
