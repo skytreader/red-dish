@@ -1,6 +1,9 @@
 // Will be filled with getTabSections once page has loaded.
 var tabSections;
 
+// Holds the last row added to the map entry section.
+var lastMapRowAdded;
+
 // Some needed values
 var lastUnderscoreRegex = /(?=.*_.*)*_(?!.*_.*)/;
 
@@ -140,6 +143,14 @@ function createNewMapRow(){
 	return newRow;
 }
 
+/**
+Adds a new row to the map entry section.
+*/
+function addNewMapRow(){
+	window.lastMapRowAdded = createNewMapRow();
+	$("#map_entry")[0].appendChild(window.lastMapRowAdded);
+}
+
 $(document).ready(function(){
 	window.tabSections = getTabSections();
 	
@@ -155,4 +166,7 @@ $(document).ready(function(){
 	$("#manual_head").click(function(){toggleTab("manual");});
 	$("#scripted_head").click(function(){toggleTab("scripted")});
 	$("[name=redis_put]").click(putRedis);
+	
+	$("[name='key[]']").focus(addNewMapRow);
+	$("[name='value[]']").focus(addNewMapRow);
 })
