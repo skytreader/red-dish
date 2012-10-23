@@ -17,7 +17,6 @@ function getTabSections(){
 	for(var i = 0; i < divCount; i++){
 		var span = $(tabheads[i]).children()[0];
 		var spanId = span.id;
-		// FIXME Strip on rightmost delimiter.
 		var sectionName = spanId.split(lastUnderscoreRegex)[0];
 		tabSections.push(sectionName);
 	}
@@ -125,10 +124,12 @@ function createNewMapRow(){
 	var newKey = document.createElement("input");
 	newKey.type = "text";
 	newKey.name = "key[]";
+	newKey.onfocus = addNewMapRow;
 	
 	var newVal = document.createElement("input");
 	newVal.type = "text";
 	newVal.name = "value[]";
+	newVal.onfocus = addNewMapRow;
 	
 	var keyCell = document.createElement("td");
 	keyCell.appendChild(newKey);
