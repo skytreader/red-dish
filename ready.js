@@ -124,12 +124,12 @@ function createNewMapRow(){
 	var newKey = document.createElement("input");
 	newKey.type = "text";
 	newKey.name = "key[]";
-	newKey.onfocus = addNewMapRow;
+	$(newKey).focus(addNewMapRow);
 	
 	var newVal = document.createElement("input");
 	newVal.type = "text";
 	newVal.name = "value[]";
-	newVal.onfocus = addNewMapRow;
+	$(newVal).focus(addNewMapRow);
 	
 	var keyCell = document.createElement("td");
 	keyCell.appendChild(newKey);
@@ -149,7 +149,17 @@ Adds a new row to the map entry section.
 */
 function addNewMapRow(){
 	window.lastMapRowAdded = createNewMapRow();
+	clearFocus();
 	$("#map_entry")[0].appendChild(window.lastMapRowAdded);
+}
+
+/**
+Turn off all onfocus listeners except for the most recently
+added row.
+*/
+function clearFocus(){
+	$("[name='key[]']").off("focus");
+	$("[name='value[]']").off("focus");
 }
 
 $(document).ready(function(){
