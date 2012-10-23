@@ -1,9 +1,6 @@
 // Will be filled with getTabSections once page has loaded.
 var tabSections;
 
-// Holds the last row added to the map entry section.
-var lastMapRowAdded;
-
 // Some needed values
 var lastUnderscoreRegex = /(?=.*_.*)*_(?!.*_.*)/;
 
@@ -158,8 +155,10 @@ Turn off all onfocus listeners except for the most recently
 added row.
 */
 function clearFocus(){
-	$("[name='key[]']").off("focus");
-	$("[name='value[]']").off("focus");
+	var mostRecentKey = document.getElementsByName("key[]");
+	var mostRecentValue = document.getElementsByName("value[]");
+	$(mostRecentKey[mostRecentKey.length - 1]).off("focus");
+	$(mostRecentValue[mostRecentValue.length - 1]).off("focus");
 }
 
 $(document).ready(function(){
