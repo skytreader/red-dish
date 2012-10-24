@@ -151,6 +151,15 @@ function addNewMapRow(){
 }
 
 /**
+Removes the most last row in the map_entry table.
+*/
+function removeMapRow(){
+	var mapTable = document.getElementById("map_entry");
+	var keyvalPairings = mapTable.children;
+	mapTable.removeChild(keyvalPairings[keyvalPairings.length - 1]);
+}
+
+/**
 Turn off all onfocus listeners except for the most recently
 added row.
 */
@@ -177,6 +186,6 @@ $(document).ready(function(){
 	$("#scripted_head").click(function(){toggleTab("scripted")});
 	$("[name=redis_put]").click(putRedis);
 	
-	$("[name='key[]']").focus(addNewMapRow);
-	$("[name='value[]']").focus(addNewMapRow);
+	$("[name='key[]']").focus(addNewMapRow).focusout(removeMapRow);
+	$("[name='value[]']").focus(addNewMapRow).focusout(removeMapRow);
 })
