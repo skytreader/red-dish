@@ -121,12 +121,12 @@ function createNewMapRow(){
 	var newKey = document.createElement("input");
 	newKey.type = "text";
 	newKey.name = "key[]";
-	$(newKey).focus(addNewMapRow);
+	$(newKey).focus(addNewMapRow).focusout(removeMapRow);
 	
 	var newVal = document.createElement("input");
 	newVal.type = "text";
 	newVal.name = "value[]";
-	$(newVal).focus(addNewMapRow);
+	$(newVal).focus(addNewMapRow).focusout(removeMapRow);
 	
 	var keyCell = document.createElement("td");
 	keyCell.appendChild(newKey);
@@ -151,12 +151,30 @@ function addNewMapRow(){
 }
 
 /**
-Removes the most last row in the map_entry table.
+Removes the most last row in the map_entry table if the row
+that triggered it's creation was left untouched.
 */
 function removeMapRow(){
-	var mapTable = document.getElementById("map_entry");
-	var keyvalPairings = mapTable.children;
-	mapTable.removeChild(keyvalPairings[keyvalPairings.length - 1]);
+	// Check first
+	var keys = document.getElementsByName("key[]");
+	var values = document.getElementsByName("value[]");
+	var recentKeyTrigger = keys[keys.length - 2];
+	var recentValTrigger = values[values.length - 2];
+	
+	var blankKeyTrigger = recentKeyTrigger.value == "";
+	var blankValTrigger = recentValTrigger.value == "";
+	
+	console.log("blank key? " + blankKeyTrigger);
+	
+	if(blankKeyTrigger || (blankKeyTrigger && blankValTrigger)){
+		var mapTable = document.getElementById("map_entry");
+		var keyvalPairings = mapTable.children;
+		mapTable.removeChild(keyvalPairings[keyvalPairings.length - 1]);
+		
+		// reassign event triggers to the key triggers
+		$(recentKeyTrigger).focus(addNewMapRow).focusout(removeMapRow);
+		$(recentValTrigger).focus(addNewMapRow).focusout(removeMapRow);
+	}
 }
 
 /**
@@ -164,10 +182,14 @@ Turn off all onfocus listeners except for the most recently
 added row.
 */
 function clearFocus(){
-	var mostRecentKey = document.getElementsByName("key[]");
-	var mostRecentValue = document.getElementsByName("value[]");
-	$(mostRecentKey[mostRecentKey.length - 1]).off("focus");
-	$(mostRecentValue[mostRecentValue.length - 1]).off("focus");
+	var keys = document.getElementsByName("key[]");
+	var mostRecentKey = keys[keys.length - 1];
+	
+	var values = document.getElementsByName("value[]");
+	var mostRecentValue = values[values.length - 1];
+	
+	$(mostRecentKey).off("focus");
+	$(mostRecentValue).off("focus");
 }
 
 $(document).ready(function(){
