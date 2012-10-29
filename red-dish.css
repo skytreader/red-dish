@@ -73,7 +73,7 @@ span.app_block_title{
 	display: inline-block;
 }
 
-span.block_button{
+span.block_button, span.delete_button{
 	text-align: center;
 	width: 5%;
 	display: inline-block;

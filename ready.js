@@ -203,10 +203,10 @@ $(document).ready(function(){
 	$("#key_value_data").click(function(){toggleBlockVisibility("key_value_data")});
 	$("#hash_map_data").click(function(){toggleBlockVisibility("hash_map_data")});
 	
-	$("[name=test_server]").click(testRedis);
+	$("[name='test_server']").click(testRedis);
 	$("#manual_head").click(function(){toggleTab("manual");});
 	$("#scripted_head").click(function(){toggleTab("scripted")});
-	$("[name=redis_put]").click(putRedis);
+	$("[name='redis_put']").click(putRedis);
 	
 	$("[name='key[]']").focus(addNewMapRow).focusout(removeMapRow);
 	$("[name='value[]']").focus(addNewMapRow).focusout(removeMapRow);

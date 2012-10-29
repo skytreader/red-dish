@@ -70,6 +70,9 @@
 								<td>
 									<input type="text" name="value[]" />
 								</td>
+								<td style="background-color: #000;">
+									<span class="delete_button">x</span>
+								</td>
 							</tr>
 						</table>
 					
